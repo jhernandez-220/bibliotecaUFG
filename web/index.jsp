@@ -8,7 +8,7 @@
     </head>
     <body>
         <div>
-            <a href="editorialesController?accion=listarEditoriales">Listar editoriales</a>
+            <a href="editorialesController?accion=listar">Listar editoriales</a>
         </div>
     </body>
 </html>

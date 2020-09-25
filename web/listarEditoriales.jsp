@@ -31,13 +31,13 @@
                 </thead>
                 <%
                     editorialesDAO dao = new editorialesDAO();
-                    List<editoriales> list = dao.listarEditorial();
+                    List<editoriales> list = dao.listar();
                     Iterator<editoriales> iter = list.iterator();
                     editoriales edi = null;
                     while(iter.hasNext()){
                         edi = iter.next();
                     }
-                %>
+                    %>
                 <tbody>
                     <tr>
                         <td><%= edi.getIdEditorial()%></td>

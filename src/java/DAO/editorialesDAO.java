@@ -20,7 +20,7 @@ public class editorialesDAO implements editorialesCRUD{
     editoriales edi = new editoriales();
 
     @Override
-    public List listarEditorial() {
+    public List listar() {
         
         ArrayList<editoriales>list = new ArrayList<>();
         String sql = "select * from editoriales";
@@ -39,19 +39,16 @@ public class editorialesDAO implements editorialesCRUD{
                 ed.setCorreo(rs.getString("correo"));
                 ed.setPais(rs.getString("pais"));
                 list.add(ed);
+                System.out.println("TODO BIEN EN LISTAR DAO");
             }
         }catch(Exception e){
+            System.out.println("ERROR EN LISTAR DAO: "+e);
         }
         return list;
     }
 
     @Override
-    public editoriales list(int idEditorial) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public boolean list(editoriales edi) {
+    public boolean list(int idEditorial) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -66,7 +63,7 @@ public class editorialesDAO implements editorialesCRUD{
     }
 
     @Override
-    public boolean delete(int id) {
+    public boolean delete(int idEditorial) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

@@ -15,29 +15,17 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author glori
+ * @author juan
  */
+
 public class editorialesController extends HttpServlet {
 
-    String listar = "vistas/listarEditoriales.jsp";
-    String add = "vistas/agregarEditorial.jsp";
-    String edit = "vistas/editarEditorial.jsp";
+    String listar = "/listarEditoriales.jsp";
+    String add = "/agregarEditorial.jsp";
+    String edit = "/editarEditorial.jsp";
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet editorialesController</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet editorialesController at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -57,7 +45,6 @@ public class editorialesController extends HttpServlet {
         
         String acceso = "";
         String action =  request.getParameter("accion");
-        
         if(action.equalsIgnoreCase("listar"));{
                 acceso = listar;
             }

@@ -6,12 +6,11 @@ import modelo.editoriales;
 
 public interface editorialesCRUD {
     
-    public List listarEditorial();
-    public editoriales list (int idEditorial);
-    public boolean list(editoriales edi);
+    public List listar();
+    public boolean list(int idEditorial);
     public boolean add(editoriales edi);
     public boolean edit(editoriales edi);
-    public boolean delete(int id);
+    public boolean delete(int idEditorial);
     
     
 }
