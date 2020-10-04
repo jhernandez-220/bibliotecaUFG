@@ -5,6 +5,7 @@
  */
 package controlador;
 
+import DAO.editorialesDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -12,6 +13,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.editoriales;
 
 /**
  *
@@ -21,22 +23,16 @@ import javax.servlet.http.HttpServletResponse;
 public class editorialesController extends HttpServlet {
 
     String listar = "/listarEditoriales.jsp";
+    String nuevo = "/agregarEditorial.jsp";
     String add = "/agregarEditorial.jsp";
     String edit = "/editarEditorial.jsp";
+    editoriales ed = new editoriales();
+    editorialesDAO daoEd = new editorialesDAO();
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
     }
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -45,10 +41,27 @@ public class editorialesController extends HttpServlet {
         
         String acceso = "";
         String action =  request.getParameter("accion");
-        if(action.equalsIgnoreCase("listar"));{
+        
+        if(action.equalsIgnoreCase("listar")){
                 acceso = listar;
-            }
-    
+        }else if (action.equalsIgnoreCase("add")){
+                acceso = add;
+        }else if(action.equalsIgnoreCase("Agregar")){
+                //String idEditorial = request.getParameter("txtIdEditorial");
+                String nombreEditorial = request.getParameter("txtNombreEditorial");
+                String direccion = request.getParameter("txtDireccion");
+                String telefono = request.getParameter("txtTelefono");
+                String correo = request.getParameter("txtCorreo");
+                String pais = request.getParameter("txtPais");
+                //ed.setNombreEditorial(idEditorial);
+                ed.setNombreEditorial(nombreEditorial);
+                ed.setDireccion(direccion);
+                ed.setTelefono(telefono);
+                ed.setCorreo(correo);
+                ed.setPais(pais);
+                daoEd.add(ed);
+                acceso = nuevo;
+                }
     RequestDispatcher vista = request.getRequestDispatcher(acceso);
     vista.forward(request, response);
     }

@@ -54,7 +54,16 @@ public class editorialesDAO implements editorialesCRUD{
 
     @Override
     public boolean add(editoriales edi) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql = "insert into editoriales(nombreEditorial, direccion, telefono, correo, pais('"+edi.getNombreEditorial()+"','"+edi.getDireccion()+"','"+edi.getTelefono()+"','"+edi.getCorreo()+"','"+edi.getPais()+"')";
+        try{
+            con = cn.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.executeUpdate();
+            System.out.println("TODO BIEN EN AGREGAR DAO");
+        }catch(Exception e){
+            System.out.println("ERROR EN AGREGAR DAO: "+e);
+            }
+            return false;
     }
 
     @Override

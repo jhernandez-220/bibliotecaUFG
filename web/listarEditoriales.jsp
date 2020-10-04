@@ -18,6 +18,7 @@
     <body>
         <div>
             <h1>EDITORIALES</h1>
+            <a href="editorialesController?accion=add">Nuevo registro</a>
             <table border="1">
                 <thead>
                     <tr>
@@ -27,6 +28,7 @@
                         <th>TELEFONO</th>
                         <th>CORREO</th>
                         <th>PAÍS</th>
+                        <th>OPCIONES</th>
                     </tr>
                 </thead>
                 <%

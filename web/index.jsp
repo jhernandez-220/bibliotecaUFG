@@ -9,6 +9,7 @@
     <body>
         <div>
             <a href="editorialesController?accion=listar">Listar editoriales</a>
+            <a href="editorialesController?accion=Agregar">Registrar Nueva editorial</a>
         </div>
     </body>
 </html>
